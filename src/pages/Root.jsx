@@ -1,4 +1,3 @@
-import { Outlet } from 'react-router-dom';
 
 import AppHeader from '../components/AppHeader.jsx';
 
@@ -7,7 +6,7 @@ function Root() {
         <>
             <AppHeader />
             <main>
-                <Outlet />
+              
             </main>
         </>
     );
