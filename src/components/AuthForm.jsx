@@ -1,11 +1,12 @@
 import classes from './AuthForm.module.css';
 
-import { Form, useSearchParams, useNavigation, Link } from 'react-router-dom';
+import { Form, useSearchParams, useActionData, useNavigation, Link } from 'react-router-dom';
 import Loader from './Loader';
 
 const AuthForm = () => {
 
     const [searchParams] = useSearchParams();
+    const errors = useActionData();
 
     // https://reactrouter.com/en/main/hooks/use-navigation
     const navigation = useNavigation();
@@ -25,16 +26,24 @@ const AuthForm = () => {
             <p>
                 <label htmlFor="email">Email:</label>
                 <input type="email" id="email" name="email" />
+                {errors?.email && <span className={classes.error}>{errors.email}</span>}
             </p>
             <p>
                 <label htmlFor="password">Password:</label>
                 <input type="password" id="password" name="password" />
+                {errors?.password && <span className={classes.error}>{errors.password}</span>}
             </p>
             {!isLogIn && <p>
                 <label htmlFor="confirm_password">Confirm password:</label>
                 <input type="password" id="confirm_password" name="confirmPassword" />
+                {errors?.confirmPassword && <span className={classes.error}>{errors.confirmPassword}</span>}
             </p>}
 
+            {
+                errors?.server && <p>
+                    <span className={classes.error}>{errors.server}</span>
+                </p>
+            }
 
             <Link to={`?action=${isLogIn ? 'signup' : 'login'}`}>
                 {isLogIn ? 'Sign Up instead' : 'Log In instead'}
