@@ -1,0 +1,29 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+
+@media screen and (max-width: 600px) {
+    /* Styles for screens with a maximum width of 600px */
+
+    .grid {
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
+    }
+
+}
+
+@media screen and (min-width: 601px) and (max-width: 900px) {
+
+    /* Styles for screens with a width between 601px and 900px */
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 10px;
+    }
+}

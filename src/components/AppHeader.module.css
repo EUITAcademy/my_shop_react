@@ -1,0 +1,22 @@
+.header {
+    margin: 0;
+    background-color: var(--color-dark-brown);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons {
+    display: inline-flex;
+}
+
+.buttons *+* {
+    margin-left: 1em;
+}
+
+
+.title {
+    margin: 0;
+    color: var(--color-tan);
+    font-family: 'Dancing Script', cursive;
+}

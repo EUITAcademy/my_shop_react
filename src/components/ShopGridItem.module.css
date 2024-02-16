@@ -1,0 +1,46 @@
+.item {
+  background-color: var(--color-tan);
+  color: var(--color-dark-brown);
+  padding: 10px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.item h2 {
+  margin: 0;
+  text-align: center;
+}
+
+.item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.item p {
+  margin: 10px 0;
+}
+
+.item button {
+  background-color: var(--color-dark-brown);
+  color: var(--color-tan);
+  cursor: pointer;
+}
+
+.item button:hover {
+  background-color: var(--color-tan);
+  color: var(--color-dark-brown);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.price {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-price);
+}

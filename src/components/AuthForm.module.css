@@ -1,0 +1,25 @@
+.form {
+    max-width: 40rem;
+    margin: 2rem auto;
+}
+
+.form label,
+.form input {
+    display: block;
+    width: 100%;
+}
+
+.form input {
+    font: inherit;
+    padding: 0.25rem;
+}
+
+.error {
+    color: #F28585;
+    font-size: 12px;
+}
+
+.form button {
+    margin: 0 8px;
+}
+

@@ -1,0 +1,17 @@
+
+.item {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-content: center;
+}
+
+.price {
+   padding-left: 8px;
+   color: var(--color-price);
+   font-weight: 700;
+}
+
+.item button {
+    margin: 8px 0 8px auto;
+}
