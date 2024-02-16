@@ -1,26 +1,24 @@
-import { useState } from 'react';
 import classes from './AuthForm.module.css';
+
+import { Form, useSearchParams, useNavigation, Link } from 'react-router-dom';
+import Loader from './Loader';
 
 const AuthForm = () => {
 
-    const [isLogIn, setIsLogin] = useState(true);
+    const [searchParams] = useSearchParams();
 
+    // https://reactrouter.com/en/main/hooks/use-navigation
+    const navigation = useNavigation();
 
+    const isSubmitting = navigation.state === "submitting";
 
-     // Event handler for form submission
-  const handleSubmit = (event) => {
-    // The preventDefault method is a function that belongs to the event object passed 
-    // to event handlers in JavaScript. 
-    // In the context of a form submission, preventDefault 
-    // is used to stop the default behavior of the browser, 
-    // which is to refresh the page or navigate to a new URL when the form is submitted.
-    event.preventDefault();
-    // Perform necessary actions, such as sending data to a server
+    // No action queryparam and invalid query param is handled in loader
+    var actionSearchParam = searchParams.get('action');
 
-  };
+    var isLogIn = actionSearchParam === 'login';
 
     return (
-        <form onSubmit={handleSubmit} className={classes.form}>
+        <Form method='POST' className={classes.form}>
             <h1>
                 {isLogIn ? 'Log in' : 'Sign Up'}
             </h1>
@@ -37,13 +35,16 @@ const AuthForm = () => {
                 <input type="password" id="confirm_password" name="confirmPassword" />
             </p>}
 
-            <button onClick={
-                () => setIsLogin((isLogIn) => !isLogIn)
-            }>
-                {isLogIn ? 'Log In' : 'Sign Up'}
-            </button>
 
-        </form>
+            <Link to={`?action=${isLogIn ? 'signup' : 'login'}`}>
+                {isLogIn ? 'Sign Up instead' : 'Log In instead'}
+            </Link>
+
+            {isSubmitting ? <Loader /> : <button>
+                {isLogIn ? 'Log In' : 'Sign Up'}
+            </button>}
+
+        </Form>
     );
 };
 
